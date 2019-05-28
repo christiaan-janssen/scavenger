@@ -8,4 +8,7 @@
   :serial t
   :depends-on (#:trivial-gamekit)
   :components ((:file "package")
+               (:file "src/utils")
+               (:file "src/asset-load")
+               (:file "src/player")
                (:file "scavenger")))
