@@ -28,25 +28,11 @@
   (:viewport-height (* *tile-size* *board-size*))
   (:viewport-title "Scavenger"))
 
-(gamekit:bind-button :right :pressed
-                     (lambda ()
-                       (setf (getf *player* :x)
-                             (1+ (getf *player* :x)))))
+(gamekit:bind-button :right :pressed (lambda ()  (move-player :right)))
+(gamekit:bind-button :left :pressed (lambda ()  (move-player :left)))
+(gamekit:bind-button :up :pressed (lambda ()  (move-player :up)))
+(gamekit:bind-button :down :pressed (lambda ()  (move-player :down)))
 
-(gamekit:bind-button :left :pressed
-                     (lambda ()
-                       (setf (getf *player* :x)
-                             (1- (getf *player* :x)))))
-
-(gamekit:bind-button :up :pressed
-                     (lambda ()
-                       (setf (getf *player* :y)
-                             (1+ (getf *player* :y)))))
-
-(gamekit:bind-button :down :pressed
-                     (lambda ()
-                       (setf (getf *player* :y)
-                             (1- (getf *player* :y)))))
 
 
 (defmethod gamekit:draw ((app scavenger))
